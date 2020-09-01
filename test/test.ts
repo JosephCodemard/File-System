@@ -6,11 +6,11 @@ const fsys = new FileSystem({
     format: Format.HEX
 });
 
-fsys.LoadSnapshot("./src/core", ["include"]);
+fsys.CreateSnapshot("./src/core", ["include"]);
 
-fsys.DumpFile("./test/snapshots");
+fsys.SaveSnapshot("./test/snapshots");
 
-var f = fsys.LoadFile("./test/snapshots/snapshot.fsys")
+var f = fsys.LoadSnapshot("./test/snapshots/snapshot.fsys")
 
 var out = [];
 f.forEach(e => out.push({name: e.name, path: e.path, type:e.type, content: "..."}));

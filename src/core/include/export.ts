@@ -112,12 +112,12 @@ export class FileSystem{
 
 
     /**
-     * [File System] - Load Snapshot - Stores all the data in the filepath
+     * [File System] - Create Snapshot - Stores all the data from the filepath
      * @param  {string} filepath  The path from which the snapshot will be taken 
      * @param {Array<string>} exclude Excludes these directories
      * @returns {fsys} returns the snapshot
      */
-    LoadSnapshot(filepath:string, exclude:string[] = []){
+    CreateSnapshot(filepath:string, exclude:string[] = []){
         if(this.config['debug']){ console.log("[TASK] Load Snapshot") }
         this.DATA = LoadFsys(filepath, [], exclude,this.config['debug']);
         return this.DATA;
@@ -133,12 +133,12 @@ export class FileSystem{
     }
 
     /**
-     * [File System] - LoadFile - Loads the snapshot file ().fsys)
+     * [File System] - Save Snapshot - Loads the snapshot file (.fsys)
      * @param  {string} filepath  The path of the file
      * @param  {configuration} config  The configuration (default)
      * @returns {fsys}  The file in an fsys[] format
     */
-    LoadFile(filepath, _config=this.config){
+    LoadSnapshot(filepath, _config=this.config){
         if(this.config['debug']){ console.log("[TASK] Load File") }
 
         var data:any = fs.readFileSync(filepath, {encoding: "utf-8"}).toString();
@@ -160,11 +160,11 @@ export class FileSystem{
     }
 
     /**
-     * [File System] - DumpFile - Dumps the snapshot file [.fsys]
+     * [File System] - Save Snapshot - Saves the snapshot file [.fsys]
      * @param  {string} filepath  The path of the file
      * @param  {configuration} config  The configuration (default)
     */
-    DumpFile(filepath, _config=this.config){
+    SaveSnapshot(filepath, _config=this.config){
         if(this.config['debug']){ console.log("\n[TASK] Dump File") }
 
         var data:any = JSON.stringify( this.DATA );
@@ -191,6 +191,15 @@ export class FileSystem{
             fs.writeFileSync(filepath + "/snapshot.fsys", data, {flag: "w"});
         }catch{
             console.log(`[ERROR]  An unexpected error occured when writing file "${filepath + "snapshot.fsys"}"`)
+        }
+    }
+
+    /**
+     * [File System] - Terminate
+    */
+    Terminate(){
+        if(this.config.debug){
+            console.log("[COMPLETE]");
         }
     }
 }

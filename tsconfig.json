@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+      "target": "ESnext",
+      "module": "commonjs",
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "forceConsistentCasingInFileNames": true,
+      "rootDir": "./",
+      "outDir": "./dist",
+      "baseUrl": "./modules/"
+    },
+
+    "include": [
+      "**/*"
+    ],
+    "exclude": [
+      "node_modules",
+      "*.spec.ts"
+    ]
+  }

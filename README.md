@@ -39,4 +39,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 
 ## License
-Licensed under [MIT](https://choosealicense.com/licenses/mit/) see [LICENSE](https://github.com/JosephCodemard/$$repo/blob/master/LICENSE) for more details
+Licensed under [MIT](https://choosealicense.com/licenses/mit/) see [LICENSE](https://github.com/JosephCodemard/File-System/blob/master/LICENSE) for more details

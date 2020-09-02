@@ -10,7 +10,7 @@ fsys.CreateSnapshot("./src/core", ["include"]);
 
 fsys.SaveSnapshot("./test/snapshots");
 
-var f = fsys.LoadSnapshot("./test/snapshots/snapshot.fsys")
+var f = fsys.LoadSnapshot("./test/snapshots/snapshot.fsys");
 
 var out = [];
 f.forEach(e => out.push({name: e.name, path: e.path, type:e.type, content: "..."}));
